@@ -2,10 +2,8 @@
 using MMSWebApp2.Models;
 using MMSWebApp2.Service.Interface;
 using MMSWebApp2.ViewModel;
-<<<<<<< HEAD
 using System.Threading.Tasks;
-=======
->>>>>>> a8db1a0c69ee9b9742531a333a065774e882d37d
+
 
 namespace MMSWebApp2.Controllers
 {
@@ -94,7 +92,6 @@ namespace MMSWebApp2.Controllers
             return View(memberViewModel);
         }
 
-<<<<<<< HEAD
         public async Task<IActionResult> Delete(int id)
         {
             if (_memberService.CheckId(id)) 
@@ -117,11 +114,5 @@ namespace MMSWebApp2.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-=======
-        public IActionResult Delete(int id)
-        {
-            return RedirectToAction(nameof(Index));
-        }
->>>>>>> a8db1a0c69ee9b9742531a333a065774e882d37d
     }
 }

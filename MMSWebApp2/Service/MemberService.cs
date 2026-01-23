@@ -53,7 +53,7 @@ namespace MMSWebApp2.Service
         {
              await _memberRepository.SaveEditMember(id, memberEditViewModel);
         }
-<<<<<<< HEAD
+
 
         public async Task<Member> DeleteMember(int id)
         {
@@ -65,7 +65,6 @@ namespace MMSWebApp2.Service
         {
             await _memberRepository.DeleteConfirmed(id);
         }
-=======
->>>>>>> a8db1a0c69ee9b9742531a333a065774e882d37d
+
     }
 }

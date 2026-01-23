@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
     int counter = 1;
 }
-<<<<<<< HEAD
+
 <h1>
     Members
     <a asp-action="Create" style="text-decoration: none;">
@@ -13,14 +13,14 @@
     
 </h1>
 <hr />
-=======
+
 <h1>Members</h1>
 
 <p>
     <a asp-action="Create">Add Member</a>
 </p>
 
->>>>>>> a8db1a0c69ee9b9742531a333a065774e882d37d
+
 <table id="membersTable" class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
@@ -80,7 +80,7 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-<<<<<<< HEAD
+
                     <a asp-action="Edit" asp-route-id="@item.MemberID" style="text-decoration: none;">
                         <i class="bi bi-pencil-square fs-4" style="color: #439be8;" title="Edit"></i>
                     </a>
@@ -90,11 +90,7 @@
                     <a asp-action="Delete" asp-route-id="@item.MemberID" style="text-decoration: none;">
                         <i class="bi bi-person-x-fill fs-4" style="color: #c4001a;" title="Delete"></i>
                     </a>
-=======
-                    <a asp-action="Edit" asp-route-id="@item.MemberID">Edit</a> |
-                    <a asp-action="Detail" asp-route-id="@item.MemberID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.MemberID">Delete</a>
->>>>>>> a8db1a0c69ee9b9742531a333a065774e882d37d
+
                 </td>
             </tr>
             counter++;

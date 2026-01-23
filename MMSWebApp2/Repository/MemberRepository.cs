@@ -23,11 +23,8 @@ namespace MMSWebApp2.Repository
                 .OrderBy(m => m.LastName)
                 .ToListAsync();
             List<MemberIndexViewModel> memres = new List<MemberIndexViewModel>();
-<<<<<<< HEAD
-            foreach (var member in members)
-=======
+
             foreach (var member in members) 
->>>>>>> a8db1a0c69ee9b9742531a333a065774e882d37d
             {
                 var memberViewModel = new MemberIndexViewModel()
                 {
@@ -65,13 +62,10 @@ namespace MMSWebApp2.Repository
 
         public bool Delete(Member member)
         {
-<<<<<<< HEAD
+
             member.IsActive = false;
             Update(member);
             return Save();
-=======
-            throw new NotImplementedException();
->>>>>>> a8db1a0c69ee9b9742531a333a065774e882d37d
         }
 
         public bool Save()
@@ -96,11 +90,8 @@ namespace MMSWebApp2.Repository
         public async Task<MemberDetailViewModel> DetailMember(int id)
         {
             var member = await GetIdAsync(id);
-<<<<<<< HEAD
+
             if (member != null)
-=======
-            if(member != null)
->>>>>>> a8db1a0c69ee9b9742531a333a065774e882d37d
             {
                 var memberViewModel = new MemberDetailViewModel()
                 {
@@ -126,11 +117,8 @@ namespace MMSWebApp2.Repository
         public async Task<MemberEditViewModel> EditMember(int id)
         {
             var member = await GetIdAsync(id);
-<<<<<<< HEAD
+
             if (member != null)
-=======
-            if (member != null) 
->>>>>>> a8db1a0c69ee9b9742531a333a065774e882d37d
             {
                 var memberViewModel = new MemberEditViewModel()
                 {
@@ -155,11 +143,9 @@ namespace MMSWebApp2.Repository
         public async Task SaveEditMember(int id, MemberEditViewModel memberEditViewModel)
         {
             var member = await GetIdAsync(id);
-<<<<<<< HEAD
-            if (member != null)
-=======
+
+
             if (member != null) 
->>>>>>> a8db1a0c69ee9b9742531a333a065774e882d37d
             {
                 member.LastName = memberEditViewModel.LastName;
                 member.FirstName = memberEditViewModel.FirstName;
@@ -171,7 +157,6 @@ namespace MMSWebApp2.Repository
                 Update(member);
             }
         }
-<<<<<<< HEAD
 
         public async Task<Member> DeleteMember(int id)
         {
@@ -187,7 +172,5 @@ namespace MMSWebApp2.Repository
             }
 
         }
-=======
->>>>>>> a8db1a0c69ee9b9742531a333a065774e882d37d
     }
 }
