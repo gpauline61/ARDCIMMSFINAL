@@ -1,0 +1,17 @@
+{
+  "version": "3.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "datatables@1.10.21",
+      "destination": "wwwroot/datatables/"
+<<<<<<< HEAD
+    },
+    {
+      "library": "bootstrap-icons@1.13.1",
+      "destination": "wwwroot/bootstrap-icons/"
+=======
+>>>>>>> a8db1a0c69ee9b9742531a333a065774e882d37d
+    }
+  ]
+}
