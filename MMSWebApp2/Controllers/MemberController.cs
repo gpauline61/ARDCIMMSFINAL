@@ -114,5 +114,18 @@ namespace MMSWebApp2.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //Index page for Active Members
+        public async Task<IActionResult> IndexActive()
+        {
+            IEnumerable<MemberActiveInactiveViewModel> members = await _memberService.GetAllActive();
+            return View(members);
+        }
+
+        //Index page for Inactive Members
+        public async Task<IActionResult> IndexInactive()
+        {
+            IEnumerable<MemberActiveInactiveViewModel> members = await _memberService.GetAllInactive();
+            return View(members);
+        }
     }
 }

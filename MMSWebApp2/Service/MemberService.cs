@@ -66,5 +66,19 @@ namespace MMSWebApp2.Service
             await _memberRepository.DeleteConfirmed(id);
         }
 
+        public async Task<MemberCountViewModel> GetMemberCount()
+        {
+            return await _memberRepository.GetMemberCount();
+        }
+
+        public async Task<IEnumerable<MemberActiveInactiveViewModel>> GetAllActive()
+        {
+            return await _memberRepository.GetAllActive();
+        }
+
+        public async Task<IEnumerable<MemberActiveInactiveViewModel>> GetAllInactive()
+        {
+            return await _memberRepository.GetAllInactive();
+        }
     }
 }

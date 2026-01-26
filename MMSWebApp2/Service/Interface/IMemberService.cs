@@ -13,6 +13,9 @@ namespace MMSWebApp2.Service.Interface
 
         Task<Member> DeleteMember(int id);
         Task DeleteConfirmed(int id);
+        Task<MemberCountViewModel> GetMemberCount();
+        Task<IEnumerable<MemberActiveInactiveViewModel>> GetAllActive();
+        Task<IEnumerable<MemberActiveInactiveViewModel>> GetAllInactive();
         bool CheckId(int id);
         bool AddMember(MemberCreateViewModel memberVM);
     }

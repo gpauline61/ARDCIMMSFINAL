@@ -18,25 +18,34 @@ namespace MMSWebApp2.Repository
         }
         public async Task<IEnumerable<MemberIndexViewModel>> GetAll()
         {
+            var status = "No";
             var members = await _context.Members
-                .Where(m => m.IsActive)
                 .OrderBy(m => m.LastName)
                 .ToListAsync();
             List<MemberIndexViewModel> memres = new List<MemberIndexViewModel>();
 
             foreach (var member in members) 
             {
-                var memberViewModel = new MemberIndexViewModel()
+                if (member.IsActive)
                 {
-                    MemberID = member.MemberID,
-                    LastName = member.LastName,
-                    FirstName = member.FirstName,
-                    Birthdate = member.Birthdate,
-                    Address = member.Address,
-                    Branch = member.Branch,
-                    ContactNo = member.ContactNo,
-                    Email = member.Email,
-                };
+                    status = "YES";
+                }
+                else
+                {
+                    status = "NO";
+                }
+                    var memberViewModel = new MemberIndexViewModel()
+                    {
+                        MemberID = member.MemberID,
+                        LastName = member.LastName,
+                        FirstName = member.FirstName,
+                        Birthdate = member.Birthdate,
+                        Address = member.Address,
+                        Branch = member.Branch,
+                        ContactNo = member.ContactNo,
+                        Email = member.Email,
+                        IsActive = status,
+                    };
                 memres.Add(memberViewModel);
             }
             return memres;
@@ -154,6 +163,7 @@ namespace MMSWebApp2.Repository
                 member.Branch = memberEditViewModel.Branch;
                 member.ContactNo = memberEditViewModel.ContactNo;
                 member.Email = memberEditViewModel.Email;
+                member.IsActive = memberEditViewModel.IsActive;
                 Update(member);
             }
         }
@@ -171,6 +181,73 @@ namespace MMSWebApp2.Repository
                 Delete(member);
             }
 
+        }
+
+        public async Task<MemberCountViewModel> GetMemberCount()
+        {
+            var memberCount = new MemberCountViewModel();
+            memberCount.TotalMembers = _context.Members.Count();
+            memberCount.ActiveMembers = _context.Members
+                .Where(m => m.IsActive)
+                .Count();
+            memberCount.InactiveMembers = _context.Members
+                .Where(m => m.IsActive == false)
+                .Count();
+            return memberCount;
+        }
+
+        public async Task<IEnumerable<MemberActiveInactiveViewModel>> GetAllActive()
+        {
+            var status = "No";
+            var members = await _context.Members
+                .Where(m => m.IsActive)
+                .OrderBy(m => m.LastName)
+                .ToListAsync();
+            List<MemberActiveInactiveViewModel> memres = new List<MemberActiveInactiveViewModel>();
+
+            foreach (var member in members)
+            {
+                var memberViewModel = new MemberActiveInactiveViewModel()
+                {
+                    MemberID = member.MemberID,
+                    LastName = member.LastName,
+                    FirstName = member.FirstName,
+                    Birthdate = member.Birthdate,
+                    Address = member.Address,
+                    Branch = member.Branch,
+                    ContactNo = member.ContactNo,
+                    Email = member.Email,
+                };
+                memres.Add(memberViewModel);
+            }
+            return memres;
+        }
+
+        public async Task<IEnumerable<MemberActiveInactiveViewModel>> GetAllInactive()
+        {
+            var status = "No";
+            var members = await _context.Members
+                .Where(m => m.IsActive == false)
+                .OrderBy(m => m.LastName)
+                .ToListAsync();
+            List<MemberActiveInactiveViewModel> memres = new List<MemberActiveInactiveViewModel>();
+
+            foreach (var member in members)
+            {
+                var memberViewModel = new MemberActiveInactiveViewModel()
+                {
+                    MemberID = member.MemberID,
+                    LastName = member.LastName,
+                    FirstName = member.FirstName,
+                    Birthdate = member.Birthdate,
+                    Address = member.Address,
+                    Branch = member.Branch,
+                    ContactNo = member.ContactNo,
+                    Email = member.Email,
+                };
+                memres.Add(memberViewModel);
+            }
+            return memres;
         }
     }
 }

@@ -1,12 +1,10 @@
 ﻿using MMSWebApp2.Enum;
-using MMSWebApp2.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace MMSWebApp2.ViewModel
 {
-    public class MemberIndexViewModel
+    public class MemberActiveInactiveViewModel
     {
-        
         public int MemberID { get; set; }
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
@@ -20,7 +18,5 @@ namespace MMSWebApp2.ViewModel
         public string ContactNo { get; set; }
         [Display(Name = "Email Address")]
         public string Email { get; set; }
-        public string IsActive { get; set; }
-
     }
 }
