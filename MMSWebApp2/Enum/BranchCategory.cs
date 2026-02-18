@@ -49,5 +49,7 @@ namespace MMSWebApp2.Enum
         SurigaoDelNorte,
         Tarlac,
         Zambales,
+        Gogon,
+        Sirangan
     }
 }
