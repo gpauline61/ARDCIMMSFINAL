@@ -52,5 +52,7 @@ namespace MMSWebApp2.Enum
         gfsdfsdsd,
         nsdfpojuewklnsdhoiepjkef,
         hsajhvsadhvjasdjk
+        Gogon,
+        Sirangan
     }
 }
